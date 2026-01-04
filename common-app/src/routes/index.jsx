@@ -1,6 +1,8 @@
 import {  createBrowserRouter } from "react-router-dom"
-import { Layout } from '../layouts/Layout.jsx'
+import { LoginLayout } from '../layouts/LoginLayout.jsx'
+import { DefaultLayout } from '../layouts/DefaultLayout.jsx'
 import { Login } from '../pages/Login.jsx'
+import { Home } from '../pages/Home.jsx'
 import { NotFound } from '../pages/404/NotFound.jsx'
 
 const router = createBrowserRouter([
@@ -13,11 +15,20 @@ const router = createBrowserRouter([
         element: <h1>bits builder coming soon</h1>,
     },
     {
-        element: <Layout />,
+        element: <LoginLayout />,
         children: [
             {
                 path: "login",
                 element: <Login />,
+            },
+        ],
+    },
+    {
+        element: <DefaultLayout />,
+        children: [
+            {
+                path: "home",
+                element: <Home />,
             },
         ],
     },

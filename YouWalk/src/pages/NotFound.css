@@ -1,0 +1,160 @@
+/* ============================================
+   404 Not Found Page - Modern Design
+   ============================================ */
+
+.not-found-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  padding: var(--space-20) 0;
+}
+
+.not-found-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Visual Section */
+.not-found-visual {
+  position: relative;
+  margin-bottom: var(--space-12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-code {
+  font-family: var(--font-display);
+  font-size: clamp(8rem, 20vw, 12rem);
+  font-weight: 900;
+  color: var(--color-black);
+  letter-spacing: -0.05em;
+  line-height: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.error-decoration {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: var(--color-accent-soft);
+  border-radius: var(--radius-full);
+  border: 3px solid var(--color-accent);
+  z-index: 1;
+  opacity: 0.3;
+}
+
+/* Text Section */
+.not-found-text {
+  margin-bottom: var(--space-10);
+}
+
+.not-found-text h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+  letter-spacing: -0.03em;
+}
+
+.not-found-text p {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Actions */
+.not-found-actions {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  margin-bottom: var(--space-16);
+  flex-wrap: wrap;
+}
+
+/* Suggestions */
+.not-found-suggestions {
+  margin-top: var(--space-12);
+  padding-top: var(--space-12);
+  border-top: 2px solid var(--bg-tertiary);
+}
+
+.not-found-suggestions h3 {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: var(--space-6);
+}
+
+.suggestions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.suggestion-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: all var(--transition-base);
+}
+
+.suggestion-card:hover {
+  border-color: var(--color-black);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.suggestion-card svg {
+  color: var(--color-accent);
+}
+
+.suggestion-card span {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+  .not-found-page {
+    padding: var(--space-12) 0;
+  }
+  
+  .error-code {
+    font-size: 6rem;
+  }
+  
+  .error-decoration {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .suggestions-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .not-found-actions {
+    flex-direction: column;
+  }
+  
+  .not-found-actions .btn {
+    width: 100%;
+  }
+}
+

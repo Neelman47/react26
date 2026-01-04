@@ -1,0 +1,535 @@
+/* ============================================
+   Product Card - Professional Premium Design
+   Expert UI Master - 16 Years Experience
+   Perfect Alignments & Professional Polish
+   ============================================ */
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-primary);
+  border: 2px solid var(--color-black);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-slow);
+  position: relative;
+}
+
+/* Professional Hover Effect */
+.product-card::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border: 3px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 
+    0 16px 32px rgba(40, 54, 24, 0.15),
+    0 4px 8px rgba(40, 54, 24, 0.1),
+    0 0 0 1px rgba(40, 54, 24, 0.08);
+}
+
+.product-card:hover::after {
+  opacity: 1;
+}
+
+/* ============================================
+   Image Section - Professional
+   ============================================ */
+
+.product-card__image-wrapper {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: var(--bg-secondary);
+}
+
+.product-card__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.product-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-card:hover .product-card__image img {
+  transform: scale(1.06);
+}
+
+/* Image Overlay */
+.product-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--color-black);
+  opacity: 0;
+  transition: opacity var(--transition-slow);
+  pointer-events: none;
+}
+
+.product-card:hover .product-card__overlay {
+  opacity: 0.04;
+}
+
+/* ============================================
+   Badges - Professional Status Indicators
+   ============================================ */
+
+.product-card__badges {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  z-index: 3;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--bg-primary);
+  box-shadow: 
+    0 4px 12px rgba(40, 54, 24, 0.18),
+    0 2px 4px rgba(40, 54, 24, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all var(--transition-base);
+  white-space: nowrap;
+}
+
+.badge-new {
+  background: var(--color-secondary);
+  color: var(--text-inverse);
+  border-color: var(--color-secondary);
+}
+
+.badge-sale {
+  background: var(--color-accent);
+  color: var(--text-inverse);
+  border-color: var(--color-accent);
+}
+
+.badge-featured {
+  background: var(--color-black);
+  color: var(--text-inverse);
+  border-color: var(--color-black);
+}
+
+.badge:hover {
+  transform: translateY(-1px);
+  box-shadow: 
+    0 6px 16px rgba(40, 54, 24, 0.22),
+    0 2px 6px rgba(40, 54, 24, 0.12);
+}
+
+/* ============================================
+   Quick Actions - Professional Icon Buttons
+   ============================================ */
+
+.product-card__actions {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  opacity: 0;
+  transform: translateX(12px);
+  transition: all var(--transition-slow);
+  z-index: 3;
+}
+
+.product-card:hover .product-card__actions {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--bg-primary);
+  border: 2px solid var(--color-black);
+  color: var(--text-primary);
+  box-shadow: 
+    0 4px 12px rgba(40, 54, 24, 0.18),
+    0 2px 4px rgba(40, 54, 24, 0.1);
+  transition: all var(--transition-base);
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+}
+
+.action-btn:hover {
+  background: var(--color-black);
+  color: var(--text-inverse);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 
+    0 8px 20px rgba(40, 54, 24, 0.25),
+    0 4px 8px rgba(40, 54, 24, 0.15);
+}
+
+.action-btn--primary:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  box-shadow: 
+    0 8px 20px rgba(188, 108, 37, 0.4),
+    0 4px 8px rgba(188, 108, 37, 0.25);
+}
+
+.action-btn--active {
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+  border-color: var(--color-accent);
+}
+
+/* ============================================
+   Content Section - Professional Layout
+   ============================================ */
+
+.product-card__content {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  flex: 1;
+  background: var(--bg-primary);
+  position: relative;
+  z-index: 2;
+  min-height: 320px;
+}
+
+/* Meta Information - Category & Stock */
+.product-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-bottom: var(--space-4);
+  border-bottom: 2px solid var(--bg-tertiary);
+  min-height: 44px;
+  flex-shrink: 0;
+}
+
+.category-tag {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--color-accent);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-accent-soft);
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-accent-light);
+  line-height: 1.2;
+}
+
+.stock-status {
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-secondary);
+  padding: var(--space-2) var(--space-4);
+  background: rgba(96, 108, 56, 0.12);
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-secondary-light);
+  line-height: 1.2;
+}
+
+/* Product Title - Professional Typography */
+.product-card__title-link {
+  text-decoration: none;
+  min-height: 56px;
+  display: flex;
+  align-items: flex-start;
+  margin-top: var(--space-1);
+}
+
+.product-card__title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  margin: 0;
+  transition: color var(--transition-base);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 56px;
+}
+
+.product-card__title-link:hover .product-card__title {
+  color: var(--color-accent);
+}
+
+/* Product Description - Refined */
+.product-card__description {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 44px;
+  margin-top: var(--space-1);
+}
+
+/* ============================================
+   Rating & Reviews - Redesigned Clean Layout
+   ============================================ */
+
+.product-card__rating {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) 0;
+  min-height: 40px;
+  flex-shrink: 0;
+}
+
+.rating-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.stars-container {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.star-filled {
+  color: #fbbf24;
+  filter: drop-shadow(0 1px 2px rgba(251, 191, 36, 0.25));
+}
+
+.star-empty {
+  color: var(--color-gray-300);
+}
+
+.rating-value {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.rating-reviews {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
+/* ============================================
+   Footer - Price & Action - Perfect Alignment
+   ============================================ */
+
+.product-card__footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  margin-top: auto;
+  padding-top: 0;
+  min-height: 110px;
+}
+
+.product-card__pricing {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.price-wrapper {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.price-main-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.price-original {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: line-through;
+  position: relative;
+  line-height: 1;
+  opacity: 0.7;
+}
+
+.price-current {
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--color-black);
+  letter-spacing: -0.04em;
+  font-family: var(--font-display);
+  line-height: 1;
+}
+
+.price-save {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-accent-soft);
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-accent-light);
+  line-height: 1.3;
+  white-space: nowrap;
+  align-self: center;
+}
+
+/* View Details Button - Professional Design */
+.btn-view-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4) var(--space-6);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: var(--color-black);
+  color: var(--text-inverse);
+  border: 2px solid var(--color-black);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+  cursor: pointer;
+  text-decoration: none;
+  width: 100%;
+  min-height: 48px;
+}
+
+.btn-view-details:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 20px rgba(188, 108, 37, 0.35),
+    0 4px 8px rgba(188, 108, 37, 0.2);
+}
+
+.btn-view-details:active {
+  transform: translateY(0);
+}
+
+/* ============================================
+   Responsive Design - Professional
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .product-card__content {
+    min-height: 300px;
+  }
+  
+  .product-card__footer {
+    min-height: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-card__actions {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .product-card__content {
+    padding: var(--space-5);
+    min-height: 280px;
+  }
+  
+  .product-card__title {
+    font-size: 17px;
+    min-height: 50px;
+  }
+  
+  .product-card__title-link {
+    min-height: 50px;
+  }
+  
+  .price-current {
+    font-size: 26px;
+  }
+  
+  .product-card__footer {
+    min-height: 95px;
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 640px) {
+  .product-card__actions {
+    flex-direction: row;
+    top: auto;
+    bottom: var(--space-3);
+    right: var(--space-3);
+    left: auto;
+  }
+  
+  .action-btn {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .product-card__meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+    min-height: auto;
+  }
+  
+  .product-card__description {
+    display: none;
+  }
+  
+  .product-card__content {
+    min-height: 240px;
+  }
+  
+  .product-card__footer {
+    min-height: 90px;
+  }
+}

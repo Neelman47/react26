@@ -1,13 +1,28 @@
-import { useState } from 'react'
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom"
+import { Layout } from './layouts/Layout.jsx'
+import { Login } from './components/Login.jsx'
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <h1>bits builder coming soon</h1>,
+  },
+  {
+    element: <Layout />,
+    children: [
+      {
+        path: "login",
+        element: <Login />,
+      },
+    ],
+  },
+]);
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <h1>Basic Init</h1>
-    </>
-  )
+  return <RouterProvider router={router} />
 }
 
 export default App

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Clock, Send, MessageSquare, Sparkles } from 'lucide-react'
+import { Mail, Phone, MapPin, Clock, Send, MessageSquare } from 'lucide-react'
 import './Contact.css'
 
 const Contact = () => {
@@ -17,8 +17,6 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // In a real app, this would send data to a backend
-    console.log('Form submitted:', formData)
     alert('Thank you for your message! We will get back to you soon.')
     setFormData({ name: '', email: '', subject: '', message: '' })
   }

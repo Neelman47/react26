@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
-import { useSearchParams, useNavigate, Link } from 'react-router-dom'
-import { Filter, Grid3X3, List, SlidersHorizontal, X, ChevronDown, Search } from 'lucide-react'
+import { useLoaderData, useSearchParams, useNavigate, Link } from 'react-router-dom'
+import { Grid3X3, List, SlidersHorizontal, X, Search } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import ProductCard from '../components/ProductCard'
 import { products, categories, getProductsByCategory } from '../data/products'
@@ -8,12 +8,14 @@ import { useWishlist } from '../contexts/WishlistContext'
 import './Shop.css'
 
 const Shop = () => {
+  const loaderData = useLoaderData()
+  const allProducts = loaderData?.products || products
   const [searchParams, setSearchParams] = useSearchParams()
   const navigate = useNavigate()
   const { wishlist } = useWishlist()
-  const categoryParam = searchParams.get('category') || searchParams.get('filter') || 'all'
-  const searchQuery = searchParams.get('search') || ''
-  const filterParam = searchParams.get('filter') || ''
+  const categoryParam = loaderData?.category || searchParams.get('category') || searchParams.get('filter') || 'all'
+  const searchQuery = loaderData?.search || searchParams.get('search') || ''
+  const filterParam = loaderData?.filter || searchParams.get('filter') || ''
   
   const [selectedCategory, setSelectedCategory] = useState(categoryParam)
   const [viewMode, setViewMode] = useState('grid')
@@ -28,7 +30,7 @@ const Shop = () => {
     } else if (categoryParam !== selectedCategory) {
       setSelectedCategory(categoryParam)
     }
-  }, [categoryParam, filterParam])
+  }, [categoryParam, filterParam, selectedCategory])
 
   const filteredProducts = useMemo(() => {
     let result = getProductsByCategory(selectedCategory === 'wishlist' ? 'all' : selectedCategory)

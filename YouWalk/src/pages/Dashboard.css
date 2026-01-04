@@ -3,7 +3,7 @@
    ============================================ */
 
 .dashboard-page {
-  padding: var(--space-10) 0 var(--space-20);
+  padding: var(--space-8) 0 var(--space-16);
   background: var(--bg-secondary);
   min-height: 100vh;
 }

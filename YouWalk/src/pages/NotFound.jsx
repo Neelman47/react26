@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Home, ShoppingBag, ArrowLeft, Search } from 'lucide-react'
+import { Home, ShoppingBag, Search } from 'lucide-react'
 import './NotFound.css'
 
 const NotFound = () => {

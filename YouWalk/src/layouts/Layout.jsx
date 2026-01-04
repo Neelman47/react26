@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
-import Header from './Header'
-import Footer from './Footer'
+import { Outlet } from 'react-router-dom'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+import './Layout.css'
 
-const Layout = ({ children }) => {
+const Layout = () => {
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
@@ -17,7 +19,7 @@ const Layout = ({ children }) => {
     <div className="app-layout">
       <Header isScrolled={isScrolled} />
       <main className="main-content">
-        {children}
+        <Outlet />
       </main>
       <Footer />
     </div>
@@ -25,3 +27,4 @@ const Layout = ({ children }) => {
 }
 
 export default Layout
+

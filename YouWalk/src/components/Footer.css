@@ -4,13 +4,18 @@
 
 .footer {
   background: var(--bg-secondary);
-  margin-top: var(--space-20);
+  margin-top: var(--space-16);
 }
 
 /* Newsletter Section */
 .footer__newsletter {
   background: var(--color-black);
   padding: var(--space-16) 0;
+}
+
+[data-theme="dark"] .footer__newsletter {
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border-default);
 }
 
 .newsletter-content {
@@ -30,6 +35,14 @@
 .newsletter-text p {
   font-size: 16px;
   color: var(--color-gray-400);
+}
+
+[data-theme="dark"] .newsletter-text h3 {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .newsletter-text p {
+  color: var(--text-secondary);
 }
 
 .newsletter-form {
@@ -70,6 +83,21 @@
 .newsletter-input:focus {
   border-color: var(--color-accent);
   box-shadow: 0 0 0 3px rgba(255, 107, 44, 0.15);
+}
+
+[data-theme="dark"] .newsletter-input {
+  background: var(--bg-elevated);
+  border-color: var(--border-default);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .newsletter-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+[data-theme="dark"] .newsletter-input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(221, 161, 94, 0.2);
 }
 
 /* Main Footer */
@@ -124,15 +152,46 @@
   border-radius: var(--radius-lg);
   background: var(--bg-primary);
   color: var(--text-secondary);
-  transition: all var(--transition-fast);
+  transition: all var(--transition-base) cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-link::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: var(--color-accent);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
 }
 
 .social-link:hover {
   background: var(--color-black);
   color: var(--text-inverse);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: var(--shadow-lg);
+}
+
+.social-link:hover::before {
+  width: 100px;
+  height: 100px;
+  opacity: 0.1;
+}
+
+.social-link svg {
+  position: relative;
+  z-index: 1;
+  transition: transform var(--transition-base);
+}
+
+.social-link:hover svg {
+  transform: scale(1.1) rotate(5deg);
 }
 
 /* Links */
@@ -157,16 +216,36 @@
   gap: var(--space-3);
 }
 
+.footer__links li {
+  position: relative;
+}
+
 .footer__links a {
   font-size: 14px;
   color: var(--text-secondary);
-  transition: all var(--transition-fast);
+  transition: all var(--transition-base);
+  display: inline-block;
+  position: relative;
+  padding: var(--space-1) 0;
+}
+
+.footer__links a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transition: width var(--transition-base) cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer__links a:hover {
   color: var(--color-accent);
-  transform: translateX(4px);
-  display: inline-block;
+}
+
+.footer__links a:hover::before {
+  width: 100%;
 }
 
 .footer__contact {
@@ -182,11 +261,25 @@
   gap: var(--space-3);
   font-size: 14px;
   color: var(--text-secondary);
+  transition: all var(--transition-base);
+  padding: var(--space-2) 0;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.footer__contact li:hover {
+  color: var(--color-accent);
 }
 
 .footer__contact li svg {
   color: var(--color-accent);
   flex-shrink: 0;
+  transition: all var(--transition-base);
+}
+
+.footer__contact li:hover svg {
+  transform: scale(1.15);
+  color: var(--color-accent-dark);
 }
 
 /* Bottom Bar */
@@ -211,10 +304,31 @@
 
 .footer__bottom-links a {
   color: var(--text-tertiary);
+  transition: all var(--transition-base);
+  position: relative;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+.footer__bottom-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 1.5px;
+  background: var(--color-accent);
+  transition: width var(--transition-base) cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer__bottom-links a:hover {
-  color: var(--text-primary);
+  color: var(--color-accent);
+  background: var(--bg-tertiary);
+}
+
+.footer__bottom-links a:hover::after {
+  width: calc(100% - var(--space-4));
 }
 
 .footer__bottom-links .separator {

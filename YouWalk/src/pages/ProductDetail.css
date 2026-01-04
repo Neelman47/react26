@@ -3,7 +3,7 @@
    ============================================ */
 
 .product-detail-page {
-  padding: var(--space-10) 0 var(--space-20);
+  padding: var(--space-8) 0 var(--space-16);
 }
 
 .product-not-found {
@@ -37,8 +37,8 @@
 .product-detail {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-16);
-  margin-bottom: var(--space-16);
+  gap: var(--space-12);
+  margin-bottom: var(--space-12);
 }
 
 /* Gallery */

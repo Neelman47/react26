@@ -1,17 +1,15 @@
 import { useState, useEffect } from 'react'
-import { useParams, Link, useNavigate } from 'react-router-dom'
+import { useLoaderData, Link } from 'react-router-dom'
 import { ShoppingBag, Heart, Share2, Minus, Plus, Check, Star, Truck, Shield, RefreshCw, ChevronRight } from 'lucide-react'
 import { motion } from 'framer-motion'
-import { getProductById, products } from '../data/products'
+import { products } from '../data/products'
 import { useCart } from '../contexts/CartContext'
 import { useWishlist } from '../contexts/WishlistContext'
 import ProductCard from '../components/ProductCard'
 import './ProductDetail.css'
 
 const ProductDetail = () => {
-  const { id } = useParams()
-  const navigate = useNavigate()
-  const product = getProductById(id)
+  const { product } = useLoaderData()
   const { addToCart } = useCart()
   const { toggleWishlist, isInWishlist } = useWishlist()
   const [selectedSize, setSelectedSize] = useState('')

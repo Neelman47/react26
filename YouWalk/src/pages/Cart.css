@@ -3,7 +3,7 @@
    ============================================ */
 
 .cart-page {
-  padding: var(--space-10) 0 var(--space-20);
+  padding: var(--space-8) 0 var(--space-16);
   min-height: 80vh;
 }
 
@@ -24,7 +24,7 @@
 .cart-layout {
   display: grid;
   grid-template-columns: 1fr 400px;
-  gap: var(--space-10);
+  gap: var(--space-8);
 }
 
 /* Cart Items */
@@ -270,7 +270,7 @@
 /* Empty Cart */
 .empty-cart {
   text-align: center;
-  padding: var(--space-20);
+  padding: var(--space-16);
 }
 
 .empty-cart__icon {

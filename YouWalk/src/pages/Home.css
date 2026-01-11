@@ -5,7 +5,7 @@
 /* Hero */
 .hero {
   position: relative;
-  padding: var(--space-16) 0 var(--space-20);
+  padding: var(--space-12) 0 var(--space-16);
   overflow: hidden;
   background: var(--bg-secondary);
 }
@@ -21,7 +21,7 @@
 .hero__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-16);
+  gap: var(--space-12);
   align-items: center;
   position: relative;
   z-index: 1;
@@ -36,6 +36,7 @@
 .hero__badge {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: var(--space-2);
   padding: var(--space-2) var(--space-4);
   background: var(--color-accent-soft);
@@ -44,6 +45,15 @@
   font-weight: 600;
   border-radius: var(--radius-full);
   width: fit-content;
+  line-height: 1;
+}
+
+.hero__badge svg,
+.hero__badge > *:first-child {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero__title {
@@ -275,7 +285,7 @@
 }
 
 .products-grid {
-  gap: var(--space-8);
+  gap: var(--space-6);
 }
 
 /* Ensure consistent card alignment in grid */
@@ -291,7 +301,7 @@
 
 .section-footer {
   text-align: center;
-  margin-top: var(--space-16);
+  margin-top: var(--space-12);
 }
 
 .section-footer .btn {
@@ -313,11 +323,11 @@
 }
 
 .cta-card__content {
-  padding: var(--space-16);
+  padding: var(--space-12);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: var(--space-5);
+  gap: var(--space-4);
 }
 
 .cta-card__content h2 {
@@ -399,7 +409,7 @@
   }
   
   .cta-card__content {
-    padding: var(--space-10);
+    padding: var(--space-8);
   }
   
   .cta-card__content h2 {

@@ -8,7 +8,7 @@
 
 /* Hero */
 .about-hero {
-  padding: var(--space-20) 0;
+  padding: var(--space-16) 0;
   background: var(--bg-secondary);
   text-align: center;
 }
@@ -33,7 +33,7 @@
 .story-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-16);
+  gap: var(--space-12);
   align-items: center;
 }
 
@@ -345,13 +345,26 @@
 }
 
 .mission-badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
   font-size: 10px;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--color-accent);
   padding: var(--space-2) var(--space-4);
+  line-height: 1;
+}
+
+.mission-badge svg,
+.mission-badge > *:first-child {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
   background: var(--color-accent-soft);
   border-radius: var(--radius-full);
   border: 2px solid var(--color-accent-light);

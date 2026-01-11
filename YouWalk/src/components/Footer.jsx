@@ -11,8 +11,6 @@ const Footer = () => {
   const handleNewsletterSubmit = (e) => {
     e.preventDefault()
     if (email.trim()) {
-      // In a real app, this would send to backend
-      console.log('Newsletter subscription:', email)
       setSubscribed(true)
       setEmail('')
       setTimeout(() => setSubscribed(false), 3000)

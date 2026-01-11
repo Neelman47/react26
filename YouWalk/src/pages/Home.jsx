@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { useLoaderData, Link } from 'react-router-dom'
 import { ArrowRight, Sparkles, TrendingUp, Award, Truck, Shield, RefreshCw } from 'lucide-react'
 import { motion } from 'framer-motion'
 import ProductCard from '../components/ProductCard'
@@ -6,7 +6,8 @@ import { products } from '../data/products'
 import './Home.css'
 
 const Home = () => {
-  const featuredProducts = products.slice(0, 4)
+  const { products: loaderProducts } = useLoaderData() || { products: products.slice(0, 4) }
+  const featuredProducts = loaderProducts || products.slice(0, 4)
   const newArrivals = products.filter(p => p.isNew).slice(0, 4)
 
   const features = [

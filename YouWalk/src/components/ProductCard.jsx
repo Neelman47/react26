@@ -11,7 +11,6 @@ const ProductCard = ({ product, index = 0 }) => {
   const { addToCart } = useCart()
   const { toggleWishlist, isInWishlist } = useWishlist()
   const [isWishlisted, setIsWishlisted] = useState(isInWishlist(product.id))
-  const [showQuickView, setShowQuickView] = useState(false)
   return (
     <motion.article
       className="product-card"
